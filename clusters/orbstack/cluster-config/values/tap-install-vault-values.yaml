@@ -1,0 +1,15 @@
+---
+tap_install:
+  secrets:
+    eso:
+      vault:
+        server: https://vault-public-vault-202830b2.8d32e0ca.z1.hashicorp.cloud:8200
+        namespace: "admin"
+        auth:
+          kubernetes:
+            mountPath: orbstack
+            role: orbstack--tap-install-secrets
+      remote_refs:
+        tap_sensitive_values:
+          sensitive_tap_values_yaml:
+            key: secret/dev/orbstack/tap/sensitive-values.yaml
