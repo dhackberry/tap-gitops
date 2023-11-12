@@ -1,0 +1,22 @@
+---
+secrets:
+  eso:
+    vault:
+      server: https://vault-public-vault-202830b2.8d32e0ca.z1.hashicorp.cloud:8200
+      namespace: "admin"
+      auth:
+        kubernetes:
+          mountPath: orbstack
+          role: orbstack--tanzu-sync-secrets
+    remote_refs:
+      sync_git:
+        basic_auth:
+          username:
+            key: secret/dev/orbstack/tanzu-sync/sync-git/basic_auth
+            property: username
+          password:
+            key: secret/dev/orbstack/tanzu-sync/sync-git/basic_auth
+            property: password
+      install_registry_dockerconfig:
+        dockerconfigjson:
+          key: secret/dev/orbstack/tanzu-sync/install-registry-dockerconfig
